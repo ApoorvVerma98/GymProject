@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/206/268/839/pose-muscle-muscle-rod-press-hd-wallpaper-preview.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 6rem;
+  color: #fff;
+  box-shadow: 1px 0 15px black;
+  max-width: 100vw;
+  height: 70vh;
+  align-items: center;
+}
+.container h1 {
+  text-align: center;
+}
+
+form {
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 1px 0 15px black;
+}
+form p {
+  margin: 1rem;
+  font-size: 1rem;
+  color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/206/268/839/pose-muscle-muscle-rod-press-hd-wallpaper-preview.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  form {
+    width: 100%;
+  }
+}
