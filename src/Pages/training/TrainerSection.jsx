@@ -87,7 +87,7 @@ const TrainerPage = () => {
           <img src={selectedTrainer.image} alt={selectedTrainer.name} />
           <h3>{selectedTrainer.name}</h3>
           <p>{selectedTrainer.description}</p>
-          <button onClick={handleSignUpClick}>
+          <button className= {styles.trainerSessionbutton} onClick={handleSignUpClick}>
             Sign up for a session with {selectedTrainer.name}
           </button>
         </div>
