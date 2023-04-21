@@ -3,6 +3,12 @@ import styles from "./Pricing.module.css";
 
 export default function PriceSection() {
   const registerPageUrl = "/register";
+  
+
+  const handleClick = () => {
+    window.location.href = registerPageUrl;
+
+  };
 
   const memberships = [
     {
@@ -45,10 +51,10 @@ export default function PriceSection() {
             {membership.features.map((feature, index) => (
               <p key={index}>{feature}</p>
             ))}
-            <a href={registerPageUrl} className={styles.button}>Buy Plan</a>
+            <button className={styles.button} onClick={handleClick}>Buy Plan</button>
           </div>
         ))}
       </div>
-    </div>
+    </div> 
   );
 }

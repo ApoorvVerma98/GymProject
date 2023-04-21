@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import style from "./Header.module.css";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 
 const Header = () => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -11,10 +11,12 @@ const Header = () => {
       <NavLink to="/">
         <div className={style.logo}>
           <img
-            src="https://www.pngall.com/wp-content/uploads/2018/04/Gym-Free-Download-PNG.png"
+            src="https://obs.line-scdn.net/0h9p3Sjp44Zl8OKktBV7kZCDJvaDJ5BGAXdkV8Oi0jOGojTiYPMB98MSotPG1wSCgLMR4pOi4iO2gl"
             alt="imge"
           />
-          <span>OX GYM</span>
+        </div>
+        <div className={style.title}>
+          
         </div>
       </NavLink>
 
@@ -28,7 +30,7 @@ const Header = () => {
         <NavLink to="/training" className={style.list}>
           TRAINING
         </NavLink>
-        <NavLink to="/login" className={style.join}>
+        <NavLink to="/login" className={style.list}>
           JOIN US
         </NavLink>
       </div>

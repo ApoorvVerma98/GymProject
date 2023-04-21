@@ -61,9 +61,9 @@ const Register = () => {
 
   return (
     <>
-      <d className={style.blur}></d>
+      
       <div className={style.container}>
-        <h1>Register</h1>
+        <h1> Register Here </h1>
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmai">
             <Form.Control
@@ -101,17 +101,19 @@ const Register = () => {
             />
           </Form.Group>
 
-          <Button
-            variant="primary"
-            // type="submit"
-            onClick={handleSubmitData}
-          >
+          <Button className={style.Button} onClick={handleSubmitData}>
             Submit
           </Button>
+          <p className="mt-3">
+            <span style={{ color: "white" }}>Already Have an Account</span>
+            <Button
+              className={style.redirectButton}
+              onClick={() => (window.location.href = "/login")}
+            >
+              Login
+            </Button>
+          </p>
         </Form>
-        <p className="mt-3">
-          Already Have an Account <NavLink to="/login">Login</NavLink>
-        </p>
       </div>
     </>
   );

@@ -63,7 +63,14 @@ const TrainerCard = ({ trainer, onClick }) => {
 const TrainerPage = () => {
   const [selectedTrainer, setSelectedTrainer] = useState(null);
 
-  return ( 
+  const handleSignUpClick = () => {
+    // Redirect the user to the register page with the selected trainer's ID
+    if (selectedTrainer) {
+      window.location.href = `/register?trainerId=${selectedTrainer.id}`;
+    }
+  };
+
+  return (
     <div className={styles.container}>
       <h2>Meet our Trainers</h2>
       <div className={styles.scrollContainer}>
@@ -80,12 +87,14 @@ const TrainerPage = () => {
           <img src={selectedTrainer.image} alt={selectedTrainer.name} />
           <h3>{selectedTrainer.name}</h3>
           <p>{selectedTrainer.description}</p>
-          <Link to="/register">
+          <button onClick={handleSignUpClick}>
             Sign up for a session with {selectedTrainer.name}
-          </Link>
+          </button>
         </div>
       ) : (
-        <p>Please select a trainer to view their details.</p>
+        <p style={{ color: "white" }}>
+          Please select a trainer to view their details.
+        </p>
       )}
     </div>
   );

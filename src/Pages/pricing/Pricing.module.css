@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("https://media.istockphoto.com/id/1134872858/photo/fitness-or-bodybuilding-background-dumbbells-on-gym-floor-top-view.jpg?b=1&s=170667a&w=0&k=20&c=61rqqk7e7sXbTSAAqpirDBqSQR51ZLDOe8fCNKZPivA=");
+  background-image: url("https://wallpaperaccess.com/full/834264.jpg");
   background-size: cover;
-
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -25,44 +24,63 @@
 
 .membership__card {
   padding: 2rem;
+  color: #fff;
   border: 1px solid #ccc;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   margin: 0 1rem;
   width: 300px;
-  background-color: rgba(255, 255, 255, 0.7);
-  text-decoration: none; 
-
+  background-color: rgba(11, 11, 11, 0.7);
+  text-decoration: none;
+  box-shadow: 0px 0px 10px rgb(255, 0, 0);
 }
 
 .membership__card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  text-decoration: none; 
+  text-decoration: none;
+  color: #fff;
+}
 
+.button {
+  background-color: gray;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+  border: 1px solid #ccc;
+  background-color: #db0b3b;
+  box-shadow: 0px 10px 20px rgb(255, 255, 255);
 }
 
 .membership__card h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-decoration: none; 
-  color: black;
+  text-decoration: none;
+  color: #fff;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 .membership__card sup {
   font-size: 1rem;
-  text-decoration: none; 
-
+  text-decoration: none;
 }
 
 .membership__card span {
   font-size: 1.5rem;
-  text-decoration: none; 
-
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {

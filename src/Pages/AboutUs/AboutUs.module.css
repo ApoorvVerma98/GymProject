@@ -1,6 +1,6 @@
 .containerWithBg {
   display: flex;
-  background-image: url("./Image 1.jpg");
+  background-image: url("https://wallpaperaccess.com/full/834264.jpg");
   background-size: cover;
   flex-direction: column;
   padding: 3rem;
@@ -10,7 +10,7 @@
   /* border-radius: 1.5rem; */
   box-shadow: 0px 0px 10px rgb(255, 0, 0);
 }
-
+ 
 .content_one {
   display: flex;
   flex-direction: column;

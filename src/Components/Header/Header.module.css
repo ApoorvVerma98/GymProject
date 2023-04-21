@@ -6,8 +6,8 @@
 .container {
   display: flex;
   justify-content: space-between;
-  padding: 0.8rem 4rem;
-  background-color: #3d2929;
+  padding: 0.10rem 0.4rem;
+  background-color: rgba(11, 11, 11, 0.7);
   color: #fff;
   box-shadow: 0px 0px 10px rgb(255, 0, 0);
   max-width: 100vw;
@@ -15,6 +15,12 @@
   top: 0;
   z-index: 999;
 }
+ 
+.title {
+  text-decoration: none;
+color: #fff;
+}
+
 .navbar {
   display: flex;
   align-items: center;
@@ -43,10 +49,9 @@ span {
   font-size: 1.3rem;
 }
 .list:hover {
-  color: red;
+  color: #fff;
   transform: translateY(-5px);
-  transition: all 0.3s ease-in-out;
-  text-shadow: 0px 10px 20px rgb(255, 255, 255);
+  text-shadow:  0px 10px 20px rgb(255, 255, 255);;
 }
 
 .join {
@@ -75,7 +80,6 @@ span {
   font-size: 1.4rem;
 }
 
-/* responsive for tablet */
 @media screen and (max-width: 768px) {
   .navbar {
     display: flex;
@@ -102,8 +106,6 @@ span {
     display: block;
   }
 }
-
-/* responsive for mobile */
 
 @media screen and (max-width: 480px) {
   .navbar {

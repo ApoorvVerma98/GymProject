@@ -1,17 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .container {
   display: flex;
-  background-color: #3d2929;
+  background-color: black;
   color: #fff;
   box-shadow: 0px 0px 10px rgb(255, 0, 0);
   max-width: 100vw;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   justify-content: space-between;
+  
 }
+
 .footer_title {
   display: flex;
   justify-content: center;
@@ -19,119 +16,105 @@
   font-size: 1rem;
   margin-bottom: 1rem;
   width: 50%;
+  border-right: 1px solid white;
 }
+
 .footer_content {
   display: flex;
   justify-content: center;
   font-size: 1rem;
   margin-bottom: 1rem;
 }
+
 .footer_content ul {
   list-style: none;
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
 }
+
 .footer_content ul a {
   margin: 0.5rem 1rem;
   text-decoration: none;
   color: #fff;
 }
+
 hr {
   margin: 0 5rem;
 }
+
 .footer_content ul a:hover {
   color: red;
 }
+
 .social_icons {
   display: flex;
   justify-content: start;
   margin: 1rem 0;
 }
+
 .social_icons .icons {
   text-decoration: none;
-  color: #fff;
   font-size: 1.5rem;
   margin: 0 1rem;
+  transition: all 0.2s ease-in-out;
 }
 
-/* responsive for tablet */
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 1rem 2rem;
-  }
-  .footer_title {
-    width: 100%;
-  }
-  .footer_content {
-    width: 100%;
-  }
-  .footer_content ul {
-    margin: 1rem 0;
-  }
-  .footer_content ul a {
-    margin: 0.5rem 0;
-  }
-  hr {
-    margin: 0 2rem;
-  }
-  .social_icons {
-    justify-content: center;
-  }
-}
-.mobile_navbar {
-  display: none;
-}
-/* responsive for mobile */
-
-@media screen and (max-width: 480px) {
-  .container {
-    padding: 1rem 1rem;
-  }
-  .footer_title {
-    width: 100%;
-  }
-  .footer_content {
-    width: 100%;
-  }
-  .footer_content ul {
-    margin: 1rem 0;
-  }
-  .footer_content ul a {
-    margin: 0.5rem 0;
-  }
-  hr {
-    margin: 0 1rem;
-  }
-  .social_icons {
-    justify-content: center;
-  }
+#facebook-icon {
+  color: #4267B2;
 }
 
-/* responsive for tablet */
+#facebook-icon:hover {
+  color: #fff;
+}
+
+#youtube-icon {
+  color: #FF0000;
+}
+
+#youtube-icon:hover {
+  color: #fff;
+}
+
+#linkedin-icon {
+  color: #0A66C2;
+}
+
+#linkedin-icon:hover {
+  color: #fff;
+}
+
+#twitter-icon {
+  color: #1DA1F2;
+}
+
+#twitter-icon:hover {
+  color: #fff;
+}
 
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
     padding: 1rem 2rem;
   }
+
   .footer_title {
     width: 100%;
   }
+
   .footer_content {
     width: 100%;
   }
+
   .footer_content ul {
     margin: 1rem 0;
   }
+
   .footer_content ul a {
     margin: 0.5rem 0;
   }
+
   hr {
-    margin: 0 2rem;
-  }
-  .social_icons {
-    justify-content: center;
+    margin: 1rem 0;
   }
 }
