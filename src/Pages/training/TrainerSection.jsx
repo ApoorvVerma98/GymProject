@@ -63,7 +63,7 @@ const TrainerCard = ({ trainer, onClick }) => {
 const TrainerPage = () => {
   const [selectedTrainer, setSelectedTrainer] = useState(null);
 
-  return (
+  return ( 
     <div className={styles.container}>
       <h2>Meet our Trainers</h2>
       <div className={styles.scrollContainer}>

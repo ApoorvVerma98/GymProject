@@ -102,6 +102,12 @@ body {
   display: none;
 }
 
+.selectedTrainer{
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+}
+
 @media (max-width: 600px) {
   .card {
     min-width: 200px;
