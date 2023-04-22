@@ -5,56 +5,68 @@ import style from "./Login.module.css";
 import { NavLink } from "react-router-dom";
 
 const Login = () => {
-  const [inputValue, setInputValue] = useState({
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [gymData, setGymData] = useState([]);
+  const [gymData, setGymData] = useState(() => {
+    const storedData = localStorage.getItem("gymUsers");
+    return storedData ? JSON.parse(storedData) : [];
+  });
 
-  const getRegister = (e) => {
+  const handleInputChange = (e) => {
     const { value, name } = e.target;
-    setInputValue(() => {
-      return {
-        ...inputValue,
-        [name]: value,
-      };
-    });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
+
   const handleSubmitData = (e) => {
     e.preventDefault();
 
-    const getUserArr = localStorage.getItem("gymUsers");
-    console.log(getUserArr);
+    const { email, password } = formData;
 
-    const { email, password } = inputValue;
-    if (email == "") {
+    if (!email) {
       alert("E-mail field is required");
-    } else if (!email.includes("@")) {
-      alert("Please enter valid email address");
-    } else if (password == "") {
-      alert("Password field is required");
-    } else if (password.length < 5) {
-      alert("Password size must be greater than Five");
-    } else {
-      if (getUserArr && getUserArr.length) {
-        const userArr = JSON.parse(getUserArr);
-        const user = userArr.find(
-          (item) => item.email === email && item.password === password
-        );
-        if (user) {
-          alert("Login Successfull");
-        } else {
-          alert("Login Failed");
-        }
-      } else {
-        alert("Login Failed");
-      }
+      return;
+    }
 
-      localStorage.setItem(
-        "gymUsers",
-        JSON.stringify([...gymData, inputValue])
-      );
+    if (!email.includes("@")) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    if (!password) {
+      alert("Password field is required");
+      return;
+    }
+
+    if (password.length < 5) {
+      alert("Password must be at least 5 characters long");
+      return;
+    }
+
+    const existingUser = gymData.find((user) => user.email === email && user.password === password);
+
+    if (existingUser) {
+      alert("Login successful");
+    } else {
+      alert("Login failed");
+    }
+
+    const userExists = gymData.find((user) => user.email === email);
+
+    if (!userExists) {
+      const newUser = {
+        email,
+        password,
+      };
+
+      const updatedData = [...gymData, newUser];
+      localStorage.setItem("gymUsers", JSON.stringify(updatedData));
+      setGymData(updatedData);
     }
   };
 
@@ -66,7 +78,7 @@ const Login = () => {
           <Form.Control
             name="email"
             type="email"
-            onChange={getRegister}
+            onChange={handleInputChange}
             placeholder="Enter email"
           />
         </Form.Group>
@@ -75,7 +87,7 @@ const Login = () => {
           <Form.Control
             name="password"
             type="password"
-            onChange={getRegister}
+            onChange={handleInputChange}
             placeholder="Password"
           />
         </Form.Group>

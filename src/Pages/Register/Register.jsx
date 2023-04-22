@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import style from "./Register.module.css";
 import Swal from "sweetalert2";
-// import { NavLink } from "react-router-dom";
 
 const Register = () => {
   const [inputValue, setInputValue] = useState({
@@ -14,7 +13,10 @@ const Register = () => {
     confirmPassword: "",
   });
 
-  const [gymData, setGymData] = useState([]);
+  const [gymData, setGymData] = useState(() => {
+    const storedData = localStorage.getItem("gymUsers");
+    return storedData ? JSON.parse(storedData) : [];
+  });
 
   const getRegister = (e) => {
     const { value, name } = e.target;
@@ -25,43 +27,59 @@ const Register = () => {
       };
     });
   };
+
   const handleSubmitData = (e) => {
     e.preventDefault();
 
     const { name, email, password, confirmPassword } = inputValue;
-    if (name == "") {
+
+    if (name.trim() === "") {
       Swal.fire("Name field is required");
-    } else if (name.length < 3) {
+      return;
+    } else if (name.trim().length < 3) {
       Swal.fire("Name size must be greater than Three");
-    } else if (Number(name)) {
-      Swal.fire("Name must be string");
-    } else if (email == "") {
+      return;
+    } else if (/\d/.test(name)) {
+      Swal.fire("Name must be a string");
+      return;
+    }
+
+    
+    if (email.trim() === "") {
       Swal.fire("E-mail field is required");
-    } else if (!email.includes("@")) {
+      return;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
       Swal.fire("Please enter valid email address");
-    } else if (!email.includes(".com")) {
-      Swal.fire("Please enter valid email address");
-    } else if (password == "") {
+      return;
+    }
+
+  
+    if (password.trim() === "") {
       Swal.fire("Password field is required");
-    } else if (confirmPassword == "") {
-      Swal.fire("Confirm-Passowrd field is required");
+      return;
     } else if (password.length < 5) {
       Swal.fire("Password size must be greater than Five");
+      return;
     } else if (password !== confirmPassword) {
       Swal.fire("Password must be same");
-    } else {
-      Swal.fire("Successfull!", "You clicked the button!", "success");
-
-      localStorage.setItem(
-        "gymUsers",
-        JSON.stringify([...gymData, inputValue])
-      );
+      return;
     }
+
+    const existingUser = gymData.find((user) => user.email === email);
+    if (existingUser) {
+      Swal.fire("User with this email already exists");
+      return;
+    }
+
+    const newUser = { name, email, password };
+    setGymData([...gymData, newUser]);
+    localStorage.setItem("gymUsers", JSON.stringify([...gymData, newUser]));
+
+    Swal.fire("Successfull!", "You clicked the button!", "success");
   };
 
   return (
     <>
-      
       <div className={style.container}>
         <h1> Register Here </h1>
         <Form>
@@ -71,36 +89,50 @@ const Register = () => {
               type="name"
               onChange={getRegister}
               placeholder="Enter your name"
+              value={inputValue.name} // add value attribute to set input value
+              required // add required attribute for form validation
+              minLength={3} // add minLength attribute for form validation
+              pattern="[A-Za-z]+" // add pattern attribute for form validation
             />
           </Form.Group>
-
+  
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control
               name="email"
               type="email"
               onChange={getRegister}
               placeholder="Enter email"
+              value={inputValue.email} // add value attribute to set input value
+              required // add required attribute for form validation
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" // add pattern attribute for form validation
             />
           </Form.Group>
-
+  
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control
               name="password"
               type="password"
               onChange={getRegister}
               placeholder="Password"
+              value={inputValue.password} // add value attribute to set input value
+              required // add required attribute for form validation
+              minLength={5} // add minLength attribute for form validation
             />
           </Form.Group>
-
+  
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control
               name="confirmPassword"
               type="password"
               onChange={getRegister}
               placeholder="Confirm Password"
+              value={inputValue.confirmPassword} // add value attribute to set input value
+              required // add required attribute for form validation
+              minLength={5} // add minLength attribute for form validation
+              pattern={inputValue.password} // add pattern attribute to ensure the value matches the password input
             />
           </Form.Group>
-
+  
           <Button className={style.Button} onClick={handleSubmitData}>
             Submit
           </Button>
@@ -117,6 +149,8 @@ const Register = () => {
       </div>
     </>
   );
-};
+}
 
 export default Register;
+
+  
