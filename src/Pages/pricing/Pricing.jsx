@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Pricing.module.css";
 
 export default function PriceSection() {
-  const registerPageUrl = "/register";
+  const registerPageUrl = "/Register";
   
 
   const handleClick = () => {

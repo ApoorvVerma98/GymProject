@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./TrainingProgram.module.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const trainers = [
   {
@@ -66,7 +66,7 @@ const TrainerPage = () => {
   const handleSignUpClick = () => {
     // Redirect the user to the register page with the selected trainer's ID
     if (selectedTrainer) {
-      window.location.href = `/register?trainerId=${selectedTrainer.id}`;
+      window.location.href = `/Register?trainerId=${selectedTrainer.id}`;
     }
   };
 

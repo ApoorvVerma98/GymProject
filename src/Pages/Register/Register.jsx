@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import style from "./Register.module.css";
 import Swal from "sweetalert2";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 const Register = () => {
   const [inputValue, setInputValue] = useState({
@@ -108,7 +108,7 @@ const Register = () => {
             <span style={{ color: "white" }}>Already Have an Account</span>
             <Button
               className={style.redirectButton}
-              onClick={() => (window.location.href = "/login")}
+              onClick={() => (window.location.href = "/Login")}
             >
               Login
             </Button>

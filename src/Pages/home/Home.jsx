@@ -41,7 +41,7 @@ const Home = () => {
             It's the only place you have to live.
           </span>
         </h1>
-        <Link to="/register">
+        <Link to="/Register">
           <button className={styles.joinButton}>Join With Us</button>
         </Link>
       </div>

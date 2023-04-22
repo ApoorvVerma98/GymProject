@@ -81,10 +81,10 @@ const Login = () => {
         </Form.Group>
 
         <Button variant="primary" type="submit" onClick={handleSubmitData}>
-          Submit
+          Login
         </Button>
-        <p>
-          Don't have an account? <NavLink to="/register">Register</NavLink>
+        <p className={style.para}>
+          Don't have an account? <NavLink to="/Register">Register</NavLink>
         </p>
       </Form>
     </div>
