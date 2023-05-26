@@ -2,6 +2,9 @@
 
 Deployment Link: https://gymox.onrender.com/
 
+![image](https://github.com/ApoorvVerma98/GymProject/assets/126326376/7ecc9d93-e860-45f5-b9a9-74c0d57f8f6f)
+
+
 ******
 
 Gym Website Project
